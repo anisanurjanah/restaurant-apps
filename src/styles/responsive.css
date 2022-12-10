@@ -1,0 +1,111 @@
+.katalog {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Smartphones (portrait) */
+@media only screen and (max-width: 499px) {
+    .header__brand {
+        margin-left: 0;
+    }
+
+    #drawer {
+        width: 250px;
+        height: 670px;
+        position: absolute;
+
+        /* menyembunyikan #drawer -250px (sesuai dengan ukuran lebar drawer) ke kiri */
+        transform: translate(-250px, 0);
+        transition: transform 0.3s ease-in-out;
+        background-color: #464E2E;
+    }
+    
+    #drawer.open {
+        transform: translate(0, 0)
+    }
+
+    .nav__item {
+        display: list-item;
+        border-bottom: 1px solid #E9E5D6;
+        width: 100%;
+        text-align: left;
+    }
+
+    .jumbotron__title {
+        font-size: 32px;
+    }
+
+    .jumbotron__tagline {
+        font-size: 16px;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    .clock {
+        padding: 16px;
+        margin-top: 4px;
+        margin-bottom: 16px;
+    }
+
+    .clock__day {
+        font-size: 16px;
+    }
+    
+    .katalog {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .header__menu {
+        display: none;
+    }
+}
+
+
+/* iPads (portrait and landscape)  */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .nav__item {
+        line-height: 8px;
+        margin: 0;
+    }
+
+    .jumbotron__title {
+        font-size: 48px;
+    }
+
+    .jumbotron__tagline {
+        font-size: 24px;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    .clock {
+        padding: 24px;
+        margin-top: 8px;
+        margin-bottom: 24px;
+    }
+
+    .clock__day {
+        font-size: 24px;
+    }
+
+    .katalog {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+}
+
+
+/* Desktops and laptops  */
+@media only screen and (min-width: 1200px) {
+    main {
+        max-width: 1200px;
+    }
+}
