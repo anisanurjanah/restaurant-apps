@@ -1,71 +1,145 @@
-@media screen and (min-width: 650px) {
+/* Smartphones (portrait) */
+@media only screen and (max-width: 499px) {
     .app-bar {
-        grid-template-columns: 1fr auto;
+        padding: 8px 16px;
+        position: static;
+    }
+
+    .app-bar .app-bar__brand {
+        margin-left: 0;
+        margin-right: 64px;
     }
 
     .app-bar .app-bar__brand h1 {
-        font-size: 1.5em;
-    }
-
-    .app-bar .app-bar__menu {
-        display: none;
+        font-size: 24px;
     }
 
     .app-bar .app-bar__navigation {
-        position: static;
-        width: 100%;
-    }
-
-    .app-bar .app-bar__navigation ul li {
-        display: inline-block;
-    }
-
-    .app-bar .app-bar__navigation ul li a {
-        display: inline-block;
-        width: 120px;
-        text-align: center;
         margin: 0;
+        position: absolute;
+        background-color: #222831;
+        top: 72px;
+        left: -180px;
+        width: 150px;
+        height: 400px;
+        transition: all 0.3s;
+        overflow: hidden;
+    }
+
+    .app-bar .app-bar__navigation.open {
+        left: 0;
+    }
+
+    .app-bar .app-bar__navigation .navbar__items {
+        display: block;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid #EEEEEE;
+    }
+
+    .app-bar .app-bar__navigation .navbar__items a {
+        font-size: 12px;
+    }
+
+    .jumbotron__title {
+        font-size: 32px;
+    }
+
+    .jumbotron__tagline {
+        margin-top: 8px;
+        font-size: 16px;
     }
 
     .restaurants {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        margin: 16px 0;
     }
 
     .restaurant {
-        grid-template-columns: auto 1fr;
+        padding: 16px;
+        margin: 16px auto;
+        max-width: fit-content;
+        gap: 12px;
     }
 
-    .restaurant .restaurant__title {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-
-    .restaurant .restaurant__overview {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .app-bar .app-bar__brand h1 {
-        font-size: 2em;
+    .restaurant .restaurant__poster,
+                .restaurant__info,
+                .restaurant__menu {
+        grid-column: 1 / span 2;
     }
 }
 
-@media screen and (min-width: 850px) {
+
+@media only screen and (min-width: 500px) {
+    .app-bar .app-bar__menu {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .jumbotron {
+        background-image: url('../public/images/heros/hero-image_4-small.jpg');
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .jumbotron {
+        background-image: url('../public/images/heros/hero-image_4-large.jpg');
+        min-height: 600px;
+    }
+}
+
+
+/* iPads (portrait and landscape)  */
+@media only screen and (min-device-width: 768px) and (max-device-width: 849px) {
+    .app-bar {
+        padding: 8px 24px;
+    }
+
+    .app-bar .app-bar__navigation .navbar__items {
+        margin: 0 8px;
+    }
+
+    .jumbotron__title {
+        font-size: 48px;
+    }
+
+    .jumbotron__tagline {
+        margin-top: 8px;
+        font-size: 24px;
+    }
+
+    .restaurants {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .restaurant {
+        padding: 24px;
+        margin: 24px auto;
+        max-width: fit-content;
+    }
+
+    .restaurant .restaurant__poster,
+    .restaurant__info,
+    .restaurant__menu {
+        grid-column: 1 / span 2;
+    }
+}
+
+@media only screen and (min-device-width: 850px) and (max-device-width: 1023px) {
+    .app-bar .app-bar__navigation .navbar__items {
+        margin: 0;
+    }
+
     .restaurants {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media screen and (min-width: 1200px) {
+/* Desktops and laptops  */
+@media only screen and (min-width: 1024px) {
     .restaurants {
         grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media screen and (min-width: 1600px) {
-    .restaurants {
-        grid-template-columns: repeat(5, 1fr);
     }
 }
