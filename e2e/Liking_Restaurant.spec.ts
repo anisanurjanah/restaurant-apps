@@ -14,21 +14,19 @@ Scenario('showing empty liked restaurants', ({ I }) => {
 Scenario('liking one restaurant', async ({ I }) => {
   I.see('Restaurant tidak ditemukan!', '.restaurants');
   I.amOnPage('/');
-
-  I.seeElement('.restaurant-item__content h3 a');
+  I.retry(3).seeElement('.restaurant-item__content h3 a');
 
   const firstRestaurant = locate('.restaurant-item__content h3 a').first();
   const firstRestaurantName = await I.grabTextFrom(firstRestaurant);
-  I.click(firstRestaurant);
 
-  I.seeElement('#likeButton');
+  I.click(firstRestaurant);
+  I.retry(3).seeElement('#likeButton');
   I.click('#likeButton');
 
   I.amOnPage('/#/favorite');
+  I.retry(3).seeElement('.restaurant-item');
 
-  I.seeElement('.restaurant-item');
   const likedRestaurantName= await I.grabTextFrom('.restaurant-item__content h3 a');
-
   assert.strictEqual(firstRestaurantName, likedRestaurantName);
 });
 
