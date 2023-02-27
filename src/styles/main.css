@@ -204,6 +204,10 @@ main {
   margin-bottom: 4px;
 }
 
+.restaurant-item__not__found {
+  color: #EEEEEE;
+}
+
 
 /*
   Restaurant

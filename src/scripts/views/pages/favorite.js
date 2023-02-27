@@ -16,14 +16,15 @@ const Favorite = {
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurants');
-
-    restaurants.forEach((restaurant) => {
-      if(restaurants.length > 0) {
+    if(restaurants.length > 0){
+      restaurants.forEach((restaurant) => {
         restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
-      } else {
-        restaurantContainer.innerHTML = "Restaurant tidak ditemukan!";
-      }
-    });
+      });
+    } else {
+      restaurantContainer.innerHTML = `
+        <h3 class="restaurant-item__not__found">Restaurant not found!</h3>
+      `;
+    }
   },
 };
 
